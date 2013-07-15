@@ -1,0 +1,6 @@
+<%= image_tag @slider.image.url(:thumb) if @slider.image %><br />
+
+<%= f.file_field :image %><br />
+<%= f.label :visible %><br />
+<%= f.check_box :visible %><br />
+<%= f.number_field :sequence %><br />

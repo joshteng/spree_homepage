@@ -1,0 +1,44 @@
+<% content_for :page_actions do %>  
+  <li><%= button_link_to Spree.t("homepage.new_slider"), new_object_url, :icon => 'icon-plus' %></li>
+<% end %>
+
+<% content_for :page_title do %>
+   <%= Spree.t("homepage.sliders") %>
+<% end %>
+
+<table class="index">
+  <colgroup>
+    <col style="width: 30%" />
+    <col style="width: 10%" />
+    <col style="width: 10%" />
+    <col style="width: 10%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= Spree::Page.human_attribute_name(:preview) %></th>
+      <th><%= Spree::Page.human_attribute_name(:sequence) %></th>
+      <th><%= Spree::Page.human_attribute_name(:visible) %></th>
+      <th class="actions"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @sliders.each do |slider| %>
+      <tr class="<%= cycle('odd', 'even') %>" id="<%= dom_id slider %>">
+        <td class="align-center">
+          <%= image_tag slider.image.url(:thumb) %>
+        </td>
+        <td class="align-center">
+          <%= slider.sequence %>
+        </td>
+        <td class="align-center">
+          <%= content_tag(:i, '', :class => 'icon-ok green') if slider.visible %>
+        </td>
+        <td  class="actions">
+          <%= link_to_edit slider, :no_text => true %>
+          <%= link_to_delete slider, :no_text => true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

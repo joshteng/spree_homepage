@@ -1,3 +1,9 @@
 /*
  *= require store/spree_frontend
+ *= require store/slider
+
 */
+
+div#wrapper {
+
+}

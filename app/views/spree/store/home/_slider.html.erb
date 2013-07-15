@@ -1,0 +1,46 @@
+<% if current_page?(:controller => 'home', :action => 'index') %>
+<div id="slider">
+  <div id="slides">
+    <% Spree::Slider.all.each do |s| %>
+      <div class="slide" style="background-image: url(<%= s.image.url %>)">
+        <h1 class="slide-title">
+        </h1>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(function() {
+    $('#slider').slider({
+      //DEFAULTS
+      slide_class     : 'slide', 
+      animation_speed : 300,
+      transition      : 'fade',
+      touch_enabled   : true,
+      auto_rotate     : true,
+      rotate_speed    : 5000,
+      pause_on_click  : true,
+      show_controls   : true,
+      next_id         : 'next',
+      prev_id         : 'prev'
+    });
+  });
+</script>
+
+<style>
+  div#wrapper{
+    position: relative;
+  }
+
+  aside#sidebar{
+    position: relative;
+  }
+
+  div#content{
+    position: relative;
+  }
+
+</style>
