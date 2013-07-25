@@ -2,7 +2,7 @@
 <div id="slider">
   <div id="slides">
     <% Spree::Slider.all.each do |s| %>
-      <div class="slide" style="background-image: url(<%= s.image.url %>)">
+      <div class="slide" style="background-image: url(<%= s.image.url(:large) %>)">
         <h1 class="slide-title">
         </h1>
       </div>
